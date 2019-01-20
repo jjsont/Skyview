@@ -1,34 +1,36 @@
 public class SkyView {
 
-    private double [][] view;
+    private double[][] view;
 
     public SkyView(int numRows, int numCols, double[] scanned) {
-        this.view= new double[numRows][numCols];
+        view = new double[numRows][numCols];
 
-        int pew= 0;
-        for(int i=0; i< numRows; i++) {
-            if(i % 2 == 0) {
-                for (int j=0; j<numCols; j++) {
+        int pew = 0;
+        for (int i = 0; i < numRows; i++) {
+            for (int j = 0; j < numCols; j++) {
+                if (i % 2 == 0) {
                     view[i][j] = scanned[pew];
+                } else {
+                    view[i][numCols - j - 1] = scanned[pew];
                 }
+
+                pew++;
             }
 
-            else {
-                for(int j= numCols - 1; j >= 0; j--) {
-                    view[i][j] = scanned[pew];
-                    pew++;
-                }
-            }
+
         }
-
     }
+
+
+
+
 
     public double getAverage(int startRow, int endRow, int startCol, int endCol) {
         int x = 0;
         double sum = 0;
-        for (int row = startRow; row <= endRow; row++) {
-            for (int col = startCol; col <= endCol; col++) {
-                sum += view[row][col];
+        for (int i = startRow; i <= endRow; i++) {
+            for (int j = startCol; j <= endCol; j++) {
+                sum += view[i][j];
                 x++;
             }
         }
