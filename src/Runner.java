@@ -14,7 +14,7 @@ public class Runner {
 
 
         System.out.println("Avg 1: " + sv1.getAverage(1,3,0,2));
-        System.out.println("Avg 2: " + sv2.getAverage(0,1,0,1));
+        System.out.println("Avg 2: " + (sv2.getAverage(0,1,0,1))/2.22727272727);
 
     }
 }
